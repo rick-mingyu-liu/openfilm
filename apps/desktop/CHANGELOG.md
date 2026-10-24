@@ -1,5 +1,26 @@
 # @openfilm/desktop
 
+## 0.3.0
+
+### Patch Changes
+
+- [#175](https://github.com/openfilm/openfilm/pull/175) [`cf6cd6f`](https://github.com/openfilm/openfilm/commit/cf6cd6fa9b3d4ee50dd963853ee6ca4f8354ecf4) Thanks [@PazChen](https://github.com/PazChen)! - Windows: DeepSeek Harness installed with npm starts in the chat. The app's own Node now starts an agent's program as the main module, as Node would, so a program that runs only when it is the main one (DeepSeek Harness's `dsh`) no longer exits at once without a word.
+
+- [#197](https://github.com/openfilm/openfilm/pull/197) [`bae8bae`](https://github.com/openfilm/openfilm/commit/bae8bae7140950fdc2f728d3dbab9c29ce7f18b9) Thanks [@PazChen](https://github.com/PazChen)! - DeepSeek Harness shows its work in the chat as it goes. Each command it runs, file it reads or writes, search and web lookup now shows as a step the moment it starts, as with the other agents, instead of only "Working" until the whole reply appears at the end.
+
+- [#202](https://github.com/openfilm/openfilm/pull/202) [`3f48c88`](https://github.com/openfilm/openfilm/commit/3f48c888f73f4153dfc90ac0cf8bba547e805023) Thanks [@WEBGRS](https://github.com/WEBGRS)! - Chat: Esc pressed again just after it closed Settings, or held down, no longer stops the agent at work. Settings gives the focus back to the chat as it closes, so the second Esc landed in the chat and stopped the turn without a word. An Esc in the chat a moment later still stops it.
+
+- [#201](https://github.com/openfilm/openfilm/pull/201) [`046155f`](https://github.com/openfilm/openfilm/commit/046155fc6209c7ea87449d9b3878e27ba9177578) Thanks [@WEBGRS](https://github.com/WEBGRS)! - A read step in the chat names the file it read, whichever agent read it. Claude Code's ended as "File", OpenCode's and Copilot's as a long path cut short (OpenCode's without its drive) and Cursor's sometimes as the whole path; each now shows the file's name, as Codex's does.
+
+- [#204](https://github.com/openfilm/openfilm/pull/204) [`1d5b497`](https://github.com/openfilm/openfilm/commit/1d5b497d8dcd2eddd06c8520c2177090c0ca5e8b) Thanks [@WEBGRS](https://github.com/WEBGRS)! - Windows: folders with Chinese (or other non-English) names on the PATH, and the other variables Windows keeps for the person, reach the agents as they are. On a Chinese Windows they came out garbled (`E:\软件安装` read as `E:\������װ`), so an agent installed into such a folder while the app ran was not found, and "Why isn't it found?" listed the garbled folder.
+
+- [#195](https://github.com/openfilm/openfilm/pull/195) [`42c46e6`](https://github.com/openfilm/openfilm/commit/42c46e6ed5cdfafeb1abd4a91f6b61f7c6ddff25) Thanks [@PazChen](https://github.com/PazChen)! - Desktop: a click on the timeline's ruler moves the playhead and a drag scrubs, as in other editors. To refer a moment to the chat, ⌘-click the ruler (Ctrl-click on Windows), the key that draws a box on the picture; ⌘-drag refers a span. While the key is held the cursor turns into a crosshair and the moment under it is drawn.
+
+- [#200](https://github.com/openfilm/openfilm/pull/200) [`ce2e120`](https://github.com/openfilm/openfilm/commit/ce2e120066874e631c8f8c7d8ddc99d1deea2bcd) Thanks [@WEBGRS](https://github.com/WEBGRS)! - In the app, with no project open, the logo at the top left opens Settings. The projects window's shade covered it, so a click on it did nothing. The top bar now stays above the shade, in the window's color.
+
+- Updated dependencies [[`619c163`](https://github.com/openfilm/openfilm/commit/619c163d2632e6e87e989049fec04dfc22188cd1), [`04f6d10`](https://github.com/openfilm/openfilm/commit/04f6d10b07ef6324d8bcc58eef9c3954b5c67771), [`cf6cd6f`](https://github.com/openfilm/openfilm/commit/cf6cd6fa9b3d4ee50dd963853ee6ca4f8354ecf4), [`14a47bf`](https://github.com/openfilm/openfilm/commit/14a47bf1daab861f0deb0d1f084a36415da3960a), [`a5a6a04`](https://github.com/openfilm/openfilm/commit/a5a6a041fb38165069d4b65e823774b50cb7554d), [`28206c3`](https://github.com/openfilm/openfilm/commit/28206c376e0d398e69df7b541b3edb1313fd47b7), [`42c46e6`](https://github.com/openfilm/openfilm/commit/42c46e6ed5cdfafeb1abd4a91f6b61f7c6ddff25), [`ce2e120`](https://github.com/openfilm/openfilm/commit/ce2e120066874e631c8f8c7d8ddc99d1deea2bcd), [`66e6715`](https://github.com/openfilm/openfilm/commit/66e671589c297debb5a27a7e8cf971615299306f)]:
+  - openfilm@0.3.0
+
 ## 0.2.5
 
 ### Patch Changes

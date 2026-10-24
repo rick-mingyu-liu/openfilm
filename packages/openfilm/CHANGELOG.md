@@ -1,5 +1,29 @@
 # openfilm
 
+## 0.3.0
+
+### Minor Changes
+
+- [#183](https://github.com/openfilm/openfilm/pull/183) [`28206c3`](https://github.com/openfilm/openfilm/commit/28206c376e0d398e69df7b541b3edb1313fd47b7) Thanks [@WEBGRS](https://github.com/WEBGRS)! - CLI: `openfilm render --subtitles` burns the project's subtitles into the rendered video, in their own style, through the same code Studio's export uses.
+
+### Patch Changes
+
+- [#168](https://github.com/openfilm/openfilm/pull/168) [`619c163`](https://github.com/openfilm/openfilm/commit/619c163d2632e6e87e989049fec04dfc22188cd1) Thanks [@ZhangYukwiver](https://github.com/ZhangYukwiver)! - Find custom Jianying and CapCut draft folders when their settings quote paths containing commas or semicolons, so exports go to the folder the app uses. Also read escaped paths from older Qt settings.
+
+- [#186](https://github.com/openfilm/openfilm/pull/186) [`04f6d10`](https://github.com/openfilm/openfilm/commit/04f6d10b07ef6324d8bcc58eef9c3954b5c67771) Thanks [@WEBGRS](https://github.com/WEBGRS)! - Desktop: the sign-in window hints for MiniMax Code (international accounts pick their region with `mcode login --region global`) and CodeBuddy (its window is titled CodeBuddy) say what to do.
+
+- [#175](https://github.com/openfilm/openfilm/pull/175) [`cf6cd6f`](https://github.com/openfilm/openfilm/commit/cf6cd6fa9b3d4ee50dd963853ee6ca4f8354ecf4) Thanks [@PazChen](https://github.com/PazChen)! - Exports: a video whose browser crashed or stopped answering is drawn once more in a new one, as an editing project's pages already were. A page or a file the browser could not load for want of the system's network buffers (`net::ERR_NO_BUFFER_SPACE`, seen on Windows) is drawn again too, instead of failing the export.
+
+- [#194](https://github.com/openfilm/openfilm/pull/194) [`14a47bf`](https://github.com/openfilm/openfilm/commit/14a47bf1daab861f0deb0d1f084a36415da3960a) Thanks [@PazChen](https://github.com/PazChen)! - `openfilm get call --path` also takes the path without its leading slash (`--path speech` is `/speech`), so it works from Git Bash on Windows, which turns an argument starting with `/` into a folder path. A path Git Bash turned that way now gets its own message: drop the leading slash or put `MSYS_NO_PATHCONV=1` in front of the command.
+
+- [#196](https://github.com/openfilm/openfilm/pull/196) [`a5a6a04`](https://github.com/openfilm/openfilm/commit/a5a6a041fb38165069d4b65e823774b50cb7554d) Thanks [@mvanhorn](https://github.com/mvanhorn)! - Rendering a long edit keeps going. An open-ended read of a video is at most 8 MiB, so it cannot hold every connection to the film, and a frame is still drawn when asking how long the video's frames last does not answer within ten seconds.
+
+- [#195](https://github.com/openfilm/openfilm/pull/195) [`42c46e6`](https://github.com/openfilm/openfilm/commit/42c46e6ed5cdfafeb1abd4a91f6b61f7c6ddff25) Thanks [@PazChen](https://github.com/PazChen)! - Desktop: a click on the timeline's ruler moves the playhead and a drag scrubs, as in other editors. To refer a moment to the chat, ⌘-click the ruler (Ctrl-click on Windows), the key that draws a box on the picture; ⌘-drag refers a span. While the key is held the cursor turns into a crosshair and the moment under it is drawn.
+
+- [#200](https://github.com/openfilm/openfilm/pull/200) [`ce2e120`](https://github.com/openfilm/openfilm/commit/ce2e120066874e631c8f8c7d8ddc99d1deea2bcd) Thanks [@WEBGRS](https://github.com/WEBGRS)! - In the app, with no project open, the logo at the top left opens Settings. The projects window's shade covered it, so a click on it did nothing. The top bar now stays above the shade, in the window's color.
+
+- [#184](https://github.com/openfilm/openfilm/pull/184) [`66e6715`](https://github.com/openfilm/openfilm/commit/66e671589c297debb5a27a7e8cf971615299306f) Thanks [@WEBGRS](https://github.com/WEBGRS)! - Subtitles: each line can fade in and out (Fade in and out under the subtitle panel's Effects, `fadeMs` in the style; off by default). The editor's preview and the burned-in export draw the fade the same way.
+
 ## 0.2.5
 
 ### Patch Changes
