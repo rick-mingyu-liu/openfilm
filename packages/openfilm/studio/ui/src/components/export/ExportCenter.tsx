@@ -602,10 +602,11 @@ export function ExportCenter(props: ExportCenterProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* left: destinations */}
-        {/* the list scrolls when the window is short; the note under it stays whole */}
-        <nav className="flex min-h-0 w-[212px] shrink-0 flex-col border-r border-[var(--border)]">
-          <h2 className="shrink-0 px-5 pb-2 pt-4 text-[15px] font-semibold tracking-tight text-[var(--text)]">{t('exportCenter.title')}</h2>
-          <div className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto overscroll-contain px-3 pb-2">
+        {/* the list scrolls when the window is short; the note under it stays whole. In a narrow window it is labelled
+            icons, so the settings beside it keep their width */}
+        <nav className="flex min-h-0 w-12 shrink-0 flex-col sm:w-[212px] border-r border-[var(--border)]">
+          <h2 className="sr-only sm:not-sr-only sm:shrink-0 sm:px-5 sm:pb-2 sm:pt-4 text-[15px] font-semibold tracking-tight text-[var(--text)]">{t('exportCenter.title')}</h2>
+          <div className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto overscroll-contain px-1 pb-2 pt-3 sm:px-3 sm:pt-0">
           {DESTS.map((d) => {
             const on = dest === d.id;
             return (
@@ -613,13 +614,15 @@ export function ExportCenter(props: ExportCenterProps) {
                 key={d.id}
                 type="button"
                 aria-pressed={on}
+                aria-label={t(`exportCenter.dest.${d.id}`)}
+                title={t(`exportCenter.dest.${d.id}`)}
                 onClick={() => { patch('dest', d.id); setResult(null); }}
                 className={`flex items-start gap-2.5 rounded-lg px-2.5 py-2 text-left transition ${
                   on ? 'bg-[var(--bg-pressed)]' : 'hover:bg-[var(--bg-hover)]'
                 }`}
               >
                 <span className={`mt-0.5 shrink-0 ${on ? 'text-[var(--text)]' : 'text-[var(--text-muted)]'}`}>{d.icon}</span>
-                <span className="min-w-0">
+                <span className="hidden min-w-0 sm:block">
                   <span className={`block text-[13px] font-medium ${on ? 'text-[var(--text)]' : 'text-[var(--text-muted)]'}`}>
                     {t(`exportCenter.dest.${d.id}`)}
                   </span>
@@ -629,7 +632,7 @@ export function ExportCenter(props: ExportCenterProps) {
             );
           })}
           </div>
-          <div className="shrink-0 border-t border-[var(--border)] px-5 py-3 text-[10.5px] leading-relaxed text-[var(--text-faint)]">
+          <div className="hidden shrink-0 border-t border-[var(--border)] px-5 py-3 text-[10.5px] leading-relaxed text-[var(--text-faint)] sm:block">
             {t('exportCenter.engineDesktop')}
           </div>
         </nav>
@@ -1131,7 +1134,7 @@ export function ExportCenter(props: ExportCenterProps) {
           {/* bottom: where it goes (a button like the dialog's other pickers: a click picks another folder), what it is
               called, what comes out, and the primary button */}
           <div className="flex shrink-0 flex-wrap items-center gap-x-5 gap-y-3 border-t border-[var(--border)] px-5 py-3.5">
-            <div className="flex min-w-[280px] max-w-[560px] flex-1 items-center gap-2">
+            <div className="flex min-w-0 max-w-[560px] flex-1 basis-full sm:min-w-[280px] sm:basis-auto items-center gap-2">
               {toDrafts ? (
                 <span className="flex h-10 min-w-0 items-center gap-2 rounded-lg border border-[var(--border)] px-3 text-[13px] text-[var(--text-muted)]">
                   <Clapperboard size={15} className="shrink-0" />
